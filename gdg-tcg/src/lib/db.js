@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.db = exports.getGameById = exports.getCardsForGame = exports.getGamesForCard = exports.getAugmentForGameAndCard = exports.getCardById = void 0;
-var sqlite3 = require("sqlite3");
-var path = require("path");
-var fs = require("fs");
+import sqlite3 from 'sqlite3';
+import path from 'path';
+import fs from 'fs';
 // Force the correct database location
 var dbPath = path.resolve(process.cwd(), 'src/lib/data/db.sqlite');
 // Ensure directory exists

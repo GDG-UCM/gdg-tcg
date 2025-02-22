@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface Card {
   cardNumber: number;
@@ -60,7 +61,9 @@ const CardsPage = () => {
               {/* Wrap the entire card in a link */}
               <Link href={`/augments/${id}/${card.cardNumber}`}>
                 <div className="group relative">
-                  <img
+                  <Image
+                    width={1200}
+                    height={800}
                     src={card.imageUrl}
                     alt={card.name}
                     className="w-full h-fit object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 interface Augment {
   cardName: string;
@@ -56,7 +57,9 @@ const AugmentPage = () => {
       <div className="flex flex-col md:flex-row items-center gap-8">
         {/* Card Image and Name */}
         <div className="w-64">
-          <img
+          <Image
+            width={1200}
+            height={800}
             src={augment.cardImageUrl}
             alt={augment.cardName}
             className="w-full h-auto object-cover rounded-lg shadow-lg"
@@ -69,7 +72,9 @@ const AugmentPage = () => {
 
         {/* Game Image and Name */}
         <div className="w-64">
-          <img
+          <Image
+            width={1200}
+            height={800}
             src={augment.gameImageUrl}
             alt={augment.gameName}
             className="w-full h-auto object-cover rounded-lg shadow-lg"

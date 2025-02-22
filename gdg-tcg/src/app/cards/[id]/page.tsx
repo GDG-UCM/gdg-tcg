@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface Game {
   gameNumber: number;
@@ -60,7 +61,9 @@ const GamePage = () => {
               {/* Wrap the entire game in a link */}
               <Link href={`/augments/${game.gameNumber}/${id}`}>
                 <div className="group relative">
-                  <img
+                  <Image
+                    width={1200}
+                    height={800}
                     src={game.imageUrl}
                     alt={game.name}
                     className="w-full h-fit object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"

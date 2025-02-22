@@ -1,6 +1,6 @@
-import * as sqlite3 from 'sqlite3';
-import * as path from 'path';
-import * as fs from 'fs';
+import sqlite3 from 'sqlite3';  // Default import for sqlite3
+import path from 'path';         // Correct ES module import for path
+import fs from 'fs';             // Correct ES module import for fs
 
 // Force the correct database location
 const dbPath = path.resolve(process.cwd(), 'src/lib/data/db.sqlite');
