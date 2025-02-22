@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var db_1 = require("./db");
+import * as db_1 from './db';
 // Insert default data into 'cards', 'augments', and 'games' tables
 var insertDefaultData = function () {
     // Insert 18 cards with images
