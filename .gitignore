@@ -39,7 +39,3 @@ src/lib/data/db.sqlite
 .DS_Store
 Thumbs.db
 Desktop.ini
-gdg-tcg/src/lib/db.js
-gdg-tcg/src/lib/db.ts
-gdg-tcg/src/lib/initDb.js
-gdg-tcg/src/lib/initDb.ts
