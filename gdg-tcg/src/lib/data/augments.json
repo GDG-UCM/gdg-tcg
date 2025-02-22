@@ -1,0 +1,122 @@
+[
+  {
+    "cardNumber": 1,
+    "gameNumber": 1,
+    "augmentDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  },
+  {
+    "cardNumber": 2,
+    "gameNumber": 1,
+    "augmentDescription": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    "cardNumber": 3,
+    "gameNumber": 1,
+    "augmentDescription": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  },
+  {
+    "cardNumber": 4,
+    "gameNumber": 1,
+    "augmentDescription": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+  },
+  {
+    "cardNumber": 5,
+    "gameNumber": 1,
+    "augmentDescription": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  },
+  {
+    "cardNumber": 6,
+    "gameNumber": 1,
+    "augmentDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    "cardNumber": 7,
+    "gameNumber": 1,
+    "augmentDescription": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  },
+  {
+    "cardNumber": 8,
+    "gameNumber": 1,
+    "augmentDescription": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+  },
+  {
+    "cardNumber": 9,
+    "gameNumber": 1,
+    "augmentDescription": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  },
+  {
+    "cardNumber": 10,
+    "gameNumber": 1,
+    "augmentDescription": "Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris."
+  },
+  {
+    "cardNumber": 11,
+    "gameNumber": 1,
+    "augmentDescription": "Fusce convallis metus id felis luctus adipiscing. Nulla volutpat alta, eu viverra felis mattis."
+  },
+  {
+    "cardNumber": 12,
+    "gameNumber": 1,
+    "augmentDescription": "Sed euismod ipsum dolor sit amet elit bibendum cursus."
+  },
+  {
+    "cardNumber": 13,
+    "gameNumber": 1,
+    "augmentDescription": "Donec id dui erat. Integer auctor magna odio ac tincidunt."
+  },
+  {
+    "cardNumber": 14,
+    "gameNumber": 1,
+    "augmentDescription": "Nulla ac leo at libero fermentum egestas non nec lorem."
+  },
+  {
+    "cardNumber": 15,
+    "gameNumber": 1,
+    "augmentDescription": "Pellentesque tincidunt est eu massa fringilla, in tincidunt purus fermentum."
+  },
+  {
+    "cardNumber": 16,
+    "gameNumber": 1,
+    "augmentDescription": "Aliquam erat volutpat. Ut ac diam et nunc dignissim pharetra."
+  },
+  {
+    "cardNumber": 17,
+    "gameNumber": 1,
+    "augmentDescription": "Sed auctor ipsum et sapien euismod gravida."
+  },
+  {
+    "cardNumber": 18,
+    "gameNumber": 1,
+    "augmentDescription": "Pellentesque tincidunt est eu massa fringilla, in tincidunt purus fermentum."
+  },
+  {
+    "cardNumber": 1,
+    "gameNumber": 2,
+    "augmentDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  },
+  {
+    "cardNumber": 2,
+    "gameNumber": 2,
+    "augmentDescription": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    "cardNumber": 3,
+    "gameNumber": 2,
+    "augmentDescription": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  },
+  {
+    "cardNumber": 4,
+    "gameNumber": 2,
+    "augmentDescription": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+  },
+  {
+    "cardNumber": 5,
+    "gameNumber": 2,
+    "augmentDescription": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  },
+  {
+    "cardNumber": 6,
+    "gameNumber": 2,
+    "augmentDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  }
+]

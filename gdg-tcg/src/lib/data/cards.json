@@ -1,0 +1,110 @@
+[
+  {
+    "cardNumber": 1,
+    "name": "Rufus",
+    "description": "Lorem ipsum dolor sit amet.",
+    "imageUrl": "/cards/1.png"
+  },
+  {
+    "cardNumber": 2,
+    "name": "Google-Chan",
+    "description": "Lorem ipsum dolor sit amet.",
+    "imageUrl": "/cards/2.png"
+  },
+  {
+    "cardNumber": 3,
+    "name": "Let's Go Gambling",
+    "description": "Lorem ipsum dolor sit amet.",
+    "imageUrl": "/cards/3.png"
+  },
+  {
+    "cardNumber": 4,
+    "name": "We Bear Bares",
+    "description": "Lorem ipsum dolor sit amet.",
+    "imageUrl": "/cards/4.png"
+  },
+  {
+    "cardNumber": 5,
+    "name": "Electric Yellow Rat Bastard",
+    "description": "Lorem ipsum dolor sit amet.",
+    "imageUrl": "/cards/5.png"
+  },
+  {
+    "cardNumber": 6,
+    "name": "Amog Us",
+    "description": "Lorem ipsum dolor sit amet.",
+    "imageUrl": "/cards/6.png"
+  },
+  {
+    "cardNumber": 7,
+    "name": "Popcar",
+    "description": "Lorem ipsum dolor sit amet.",
+    "imageUrl": "/cards/7.png"
+  },
+  {
+    "cardNumber": 8,
+    "name": "Unlike Unto Us",
+    "description": "Lorem ipsum dolor sit amet.",
+    "imageUrl": "/cards/8.png"
+  },
+  {
+    "cardNumber": 9,
+    "name": "Eff the Ground Shork",
+    "description": "Lorem ipsum dolor sit amet.",
+    "imageUrl": "/cards/9.png"
+  },
+  {
+    "cardNumber": 10,
+    "name": "Undertail",
+    "description": "Lorem ipsum dolor sit amet.",
+    "imageUrl": "/cards/10.png"
+  },
+  {
+    "cardNumber": 11,
+    "name": "Sussyphus, Founder of Ephyra",
+    "description": "Lorem ipsum dolor sit amet.",
+    "imageUrl": "/cards/11.png"
+  },
+  {
+    "cardNumber": 12,
+    "name": "Copium Panda, Fall of the West",
+    "description": "Lorem ipsum dolor sit amet.",
+    "imageUrl": "/cards/12.png"
+  },
+  {
+    "cardNumber": 13,
+    "name": "Spongeman the King of Curses",
+    "description": "Lorem ipsum dolor sit amet.",
+    "imageUrl": "/cards/13.png"
+  },
+  {
+    "cardNumber": 14,
+    "name": "P Squiddy the Dishonored One",
+    "description": "Lorem ipsum dolor sit amet.",
+    "imageUrl": "/cards/14.png"
+  },
+  {
+    "cardNumber": 15,
+    "name": "Neuron Decay Device",
+    "description": "Lorem ipsum dolor sit amet.",
+    "imageUrl": "/cards/15.png"
+  },
+  {
+    "cardNumber": 16,
+    "name": "Gemini the Omniscient",
+    "description": "Lorem ipsum dolor sit amet.",
+    "imageUrl": "/cards/16.png"
+  },
+  {
+    "cardNumber": 17,
+    "name": "Zhong Xi Na, Yu Can't Xi Mi",
+    "description": "Lorem ipsum dolor sit amet.",
+    "imageUrl": "/cards/17.png"
+  },
+  {
+    "cardNumber": 18,
+    "name": "Earthsplitter the Grabbitational One",
+    "description": "Lorem ipsum dolor sit amet.",
+    "imageUrl": "/cards/18.png"
+  }
+]

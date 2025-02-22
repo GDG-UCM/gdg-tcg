@@ -1,0 +1,14 @@
+[
+  {
+    "gameNumber": 1,
+    "name": "Example Game 1",
+    "description": "This is the first example game description.",
+    "imageUrl": "/games/1.png"
+  },
+  {
+    "gameNumber": 2,
+    "name": "Example Game 2",
+    "description": "This is the second example game description.",
+    "imageUrl": "/games/2.png"
+  }
+]
