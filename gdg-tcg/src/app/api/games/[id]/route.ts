@@ -2,7 +2,12 @@ import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 
-// Define the Card and Game interfaces
+// Define interfaces for augment and card
+interface Augment {
+  cardNumber: number;
+  gameNumber: number;
+}
+
 interface Card {
   cardNumber: number;
   name: string;
@@ -10,60 +15,46 @@ interface Card {
   imageUrl: string;
 }
 
-interface Game {
-  gameNumber: number;
-  name: string;
-  description: string;
-  imageUrl: string;
-  cardNumbers: number[]; // Assuming this holds related card numbers
-}
-
-// Utility function to read and parse the JSON data
-function readJsonFile<T>(filePath: string): T | null {
+function readJsonFile(filePath: string): any {
   try {
     const jsonData = fs.readFileSync(filePath, 'utf-8');
-    return JSON.parse(jsonData) as T;  // Return typed data
+    return JSON.parse(jsonData);
   } catch (error) {
     console.error('Error reading JSON file:', error);
     return null;
   }
 }
 
-// Update this function to fetch cards data from JSON
-function getCardsForGame(id: string): Card[] {
-  // Define the path to the cards and games JSON files
-  const cardsJsonPath = path.resolve('src/lib/data/cards.json');
-  const gamesJsonPath = path.resolve('src/lib/data/games.json');
-
-  const cards = readJsonFile<Card[]>(cardsJsonPath);
-  const games = readJsonFile<Game[]>(gamesJsonPath);
-  if (!cards || !games) return [];
-
-  // Find the game with the given id
-  const game = games.find((game) => game.gameNumber === parseInt(id));
-  if (!game) return [];
-
-  // Return cards associated with the game
-  return cards.filter((card) => game.cardNumbers.includes(card.cardNumber));
-}
-
-// Use an async function to handle the route
-export async function GET(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
   try {
-    // Await params before using
-    const { id } = await params;
+    const { id } = params;  // Get the game ID
 
-    // Fetch the cards associated with the game from the JSON data
-    const cards = getCardsForGame(id);
-    
-    // If no cards are found, return an empty array or a 404 error
-    if (!cards.length) {
-      return NextResponse.json({ error: 'No cards found for this game' }, { status: 404 });
+    // Define paths to the cards, augments, and games JSON files
+    const cardsJsonPath = path.resolve('src/lib/data/cards.json');
+    const augmentsJsonPath = path.resolve('src/lib/data/augments.json');
+
+    // Read the cards and augments data
+    const cards = readJsonFile(cardsJsonPath);
+    const augments = readJsonFile(augmentsJsonPath);
+
+    if (!cards || !augments) {
+      return NextResponse.json({ error: 'Failed to fetch cards or augments' }, { status: 500 });
     }
 
-    return NextResponse.json(cards);
+    // Find all augments associated with the game number
+    const gameAugments = augments.filter((augment: Augment) => augment.gameNumber === parseInt(id));
+    const cardNumbers = gameAugments.map((augment: Augment) => augment.cardNumber);
+
+    // Fetch the card details based on card numbers
+    const associatedCards = cardNumbers.map((cardNumber: number) => {
+      const card = cards.find((card: Card) => card.cardNumber === cardNumber);
+      return card || null;  // Return card details or null if not found
+    }).filter(card => card !== null); // Remove any null values (cards not found)
+
+    // Return the associated card details
+    return NextResponse.json(associatedCards);
   } catch (error) {
-    console.error('Error fetching cards for game:', error);
-    return NextResponse.json({ error: 'Failed to fetch data' }, { status: 500 });
+    console.error('Error fetching cards or augments:', error);
+    return NextResponse.json({ error: 'Failed to fetch cards or augments' }, { status: 500 });
   }
 }

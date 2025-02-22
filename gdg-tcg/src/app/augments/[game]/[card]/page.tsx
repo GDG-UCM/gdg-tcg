@@ -6,10 +6,10 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 interface Augment {
+  augmentDescription: string;
   cardName: string;
-  gameName: string;
-  description: string;
   cardImageUrl: string;
+  gameName: string;
   gameImageUrl: string;
 }
 
@@ -28,8 +28,15 @@ const AugmentPage = () => {
 
           if (data.error) {
             console.error(data.error);
-          } else {
-            setAugment(data);
+          } else if (data.augments.length > 0) {
+            // Extract data from API response
+            setAugment({
+              augmentDescription: data.augments[0].augmentDescription,
+              cardName: data.card.name,
+              cardImageUrl: data.card.imageUrl,
+              gameName: data.game.name,
+              gameImageUrl: data.game.imageUrl,
+            });
           }
         }
       } catch (error) {
@@ -55,31 +62,31 @@ const AugmentPage = () => {
       <h1 className="text-3xl font-bold mb-6">Augment Details</h1>
 
       <div className="flex flex-col md:flex-row items-center gap-8">
-        {/* Card Image and Name */}
+        {/* Card Image */}
         <div className="w-64">
           <Image
-            width={1200}
-            height={800}
+            width={400}
+            height={400}
             src={augment.cardImageUrl}
             alt={augment.cardName}
             className="w-full h-auto object-cover rounded-lg shadow-lg"
           />
-          <p className="mt-2 text-lg font-semibold">{augment.cardName}</p>
+          <h2 className="text-xl font-semibold mt-2">{augment.cardName}</h2>
         </div>
 
         {/* Augment Description */}
-        <p className="max-w-lg text-lg italic">{augment.description}</p>
+        <p className="max-w-lg text-lg italic">{augment.augmentDescription}</p>
 
-        {/* Game Image and Name */}
+        {/* Game Image */}
         <div className="w-64">
           <Image
-            width={1200}
-            height={800}
+            width={400}
+            height={400}
             src={augment.gameImageUrl}
             alt={augment.gameName}
             className="w-full h-auto object-cover rounded-lg shadow-lg"
           />
-          <p className="mt-2 text-lg font-semibold">{augment.gameName}</p>
+          <h2 className="text-xl font-semibold mt-2">{augment.gameName}</h2>
         </div>
       </div>
     </motion.div>
