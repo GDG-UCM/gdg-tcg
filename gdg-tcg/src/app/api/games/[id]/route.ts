@@ -15,7 +15,7 @@ interface Card {
   imageUrl: string;
 }
 
-function readJsonFile(filePath: string): any {
+function readJsonFile(filePath: string): T | null {
   try {
     const jsonData = fs.readFileSync(filePath, 'utf-8');
     return JSON.parse(jsonData);

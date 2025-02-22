@@ -14,7 +14,7 @@ interface Game {
   imageUrl: string;
 }
 
-function readJsonFile(filePath: string): any {
+function readJsonFile(filePath: string): T | null {
   try {
     const jsonData = fs.readFileSync(filePath, 'utf-8');
     return JSON.parse(jsonData);
@@ -24,18 +24,17 @@ function readJsonFile(filePath: string): any {
   }
 }
 
-export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(req: NextRequest, context: { params: { id: string } }) {
   try {
-    // Await params to ensure they are available
-    const { id } = await params;  // Get the card ID
+    const { id } = context.params; // `context.params` is now typed as `{ id: string }`
 
     // Define paths to the augments and games JSON files
     const augmentsJsonPath = path.resolve('src/lib/data/augments.json');
-    const gamesJsonPath = path.resolve('src/lib/data/games.json'); // Assuming you have a games.json
+    const gamesJsonPath = path.resolve('src/lib/data/games.json');
 
     // Read the augments and games data
     const augments = readJsonFile(augmentsJsonPath);
-    const games = readJsonFile(gamesJsonPath);  // Read games data
+    const games = readJsonFile(gamesJsonPath);
 
     if (!augments || !games) {
       return NextResponse.json({ error: 'Failed to fetch augments or games' }, { status: 500 });
@@ -51,8 +50,8 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
       return game || null;  // Return game details or null if not found
     }).filter(game => game !== null); // Remove any null values (games not found)
 
-    // Return the associated game details
-    return NextResponse.json(associatedGames);
+    // Return the associated game details wrapped in a Promise
+    return Promise.resolve(NextResponse.json(associatedGames)); // Ensure async returns a promise
   } catch (error) {
     console.error('Error fetching augments or games:', error);
     return NextResponse.json({ error: 'Failed to fetch augments or games' }, { status: 500 });

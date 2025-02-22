@@ -22,25 +22,27 @@ interface Game {
 }
 
 // Helper function to read a JSON file
-function readJsonFile(filePath: string): any {
+function readJsonFile<T>(filePath: string): T | null {
   try {
     const jsonData = fs.readFileSync(filePath, 'utf-8');
-    return JSON.parse(jsonData);
+    return JSON.parse(jsonData) as T;
   } catch (error) {
     console.error('Error reading JSON file:', error);
     return null;
   }
 }
 
+// Import the correct type from Next.js
+import { RouteContext } from 'next/dist/server/app-render/types';
+
 // GET request handler
 export async function GET(
   req: NextRequest,
-  context: { params: { game: string; card: string } }
-) {
+  context: RouteContext<{ game: string; card: string }>
+): Promise<NextResponse> {
   try {
-    // Ensure params are awaited before using them
-    const params = await context.params;
-    const { game, card } = params;
+    // Extract game ID and card ID from params
+    const { game, card } = context.params; // Do NOT use `await` here
 
     const gameNumber = parseInt(game);
     const cardNumber = parseInt(card);
@@ -54,10 +56,10 @@ export async function GET(
     const cardsJsonPath = path.resolve('src/lib/data/cards.json');
     const gamesJsonPath = path.resolve('src/lib/data/games.json');
 
-    // Read JSON data
-    const augments = readJsonFile(augmentsJsonPath);
-    const cards = readJsonFile(cardsJsonPath);
-    const games = readJsonFile(gamesJsonPath);
+    // Read JSON data with proper types
+    const augments = readJsonFile<Augment[]>(augmentsJsonPath);
+    const cards = readJsonFile<Card[]>(cardsJsonPath);
+    const games = readJsonFile<Game[]>(gamesJsonPath);
 
     if (!augments || !cards || !games) {
       return NextResponse.json({ error: 'Failed to fetch data' }, { status: 500 });
@@ -65,14 +67,14 @@ export async function GET(
 
     // Find the matching augment
     const matchingAugments = augments.filter(
-      (augment: Augment) => augment.cardNumber === cardNumber && augment.gameNumber === gameNumber
+      (augment) => augment.cardNumber === cardNumber && augment.gameNumber === gameNumber
     );
 
     // Fetch card details
-    const cardDetails = cards.find((card: Card) => card.cardNumber === cardNumber) || null;
+    const cardDetails = cards.find((c) => c.cardNumber === cardNumber) || null;
 
     // Fetch game details
-    const gameDetails = games.find((game: Game) => game.gameNumber === gameNumber) || null;
+    const gameDetails = games.find((g) => g.gameNumber === gameNumber) || null;
 
     return NextResponse.json({
       augments: matchingAugments,
