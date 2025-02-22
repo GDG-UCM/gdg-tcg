@@ -1,7 +1,7 @@
-import { NextResponse } from 'next/server';
+import { NextResponse, NextRequest } from 'next/server';
 import { getAugmentForGameAndCard } from '@/lib/db';
 
-export async function GET(req: Request, { params }: { params: { game: string; card: string } }) {
+export async function GET(req: NextRequest, { params }: { params: { game: string; card: string } }) {
   try {
     const { game, card } = params;
 
